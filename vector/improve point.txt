@@ -1,0 +1,7 @@
+#1
+if the user ask a question that is not close enough to anything
+ask the user to call a umber to have assistance
+and send a notification to the admin part of the website so a nurse/medical employee can add an answer
+
+#2
+find a way to say that a sentence is not close enough from any existing sentence
