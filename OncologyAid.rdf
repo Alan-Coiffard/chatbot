@@ -66,6 +66,18 @@
     
 
 
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasDysphagia -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasDysphagia">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasSymptom"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Patient"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Dysphagia"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasFact -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasFact">
@@ -205,6 +217,17 @@
     
 
 
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasIngestionRating -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasIngestionRating">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Ingestion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="en">On a scale from 0 to 2 this value describes the current food and water intale of a patient (a value of -1 suggests that no data about this was given yet, otherwise a 0 indicates a normal problemless ingestion and a 2 indicates problems with ingestion).</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasNoseBleedingRating -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasNoseBleedingRating">
@@ -310,6 +333,24 @@
     
 
 
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Dysphagia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Dysphagia">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#DysphagiaTrue"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#NoDysphagia"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#PossibleDysphagia"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#UnknownDysphagia"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Symptom"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Fact -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Fact">
@@ -360,6 +401,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Ingestion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Ingestion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Fact"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#NoseBleeding -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#NoseBleeding">
@@ -390,6 +439,13 @@
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasDiarrhea"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Diarrhea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasDysphagia"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Dysphagia"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -504,6 +560,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#DysphagiaTrue -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#DysphagiaTrue">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Dysphagia"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#FeverUnknown -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#FeverUnknown">
@@ -540,6 +604,16 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#HypothermiaUnknown">
         <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Hypothermia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#IngestionOfPatient0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#IngestionOfPatient0">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Ingestion"/>
+        <OncologyAid:isFactOf rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Patient0"/>
+        <OncologyAid:hasIngestionRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</OncologyAid:hasIngestionRating>
     </owl:NamedIndividual>
     
 
@@ -592,6 +666,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#NoDysphagia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#NoDysphagia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Dysphagia"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#NoFever -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#NoFever">
@@ -614,6 +696,14 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Patient0">
         <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Patient"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#PossibleDysphagia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#PossibleDysphagia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Dysphagia"/>
     </owl:NamedIndividual>
     
 
@@ -684,6 +774,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#UnknownDysphagia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#UnknownDysphagia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Dysphagia"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -720,6 +818,9 @@
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/c">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/i">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/t">
@@ -2323,213 +2424,6 @@
     </rdf:Description>
     <rdf:Description>
         <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
-        <rdfs:comment>If no bleeding value is known (all of them are -1), no inferrence about the bleeding can be made.</rdfs:comment>
-        <rdfs:label>UnknownBleedingDetection</rdfs:label>
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
-                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#NoseBleeding"/>
-                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/n"/>
-                    </rdf:Description>
-                </rdf:first>
-                <rdf:rest>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                        <rdf:first>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#isFactOf"/>
-                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/n"/>
-                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
-                            </rdf:Description>
-                        </rdf:first>
-                        <rdf:rest>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                                <rdf:first>
-                                    <rdf:Description>
-                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasNoseBleedingRating"/>
-                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/n"/>
-                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/nr"/>
-                                    </rdf:Description>
-                                </rdf:first>
-                                <rdf:rest>
-                                    <rdf:Description>
-                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                                        <rdf:first>
-                                            <rdf:Description>
-                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
-                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
-                                                <swrl:arguments>
-                                                    <rdf:Description>
-                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                                        <rdf:first rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/nr"/>
-                                                        <rdf:rest>
-                                                            <rdf:Description>
-                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</rdf:first>
-                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                                            </rdf:Description>
-                                                        </rdf:rest>
-                                                    </rdf:Description>
-                                                </swrl:arguments>
-                                            </rdf:Description>
-                                        </rdf:first>
-                                        <rdf:rest>
-                                            <rdf:Description>
-                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                                                <rdf:first>
-                                                    <rdf:Description>
-                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
-                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#BloodInUrine"/>
-                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/u"/>
-                                                    </rdf:Description>
-                                                </rdf:first>
-                                                <rdf:rest>
-                                                    <rdf:Description>
-                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                                                        <rdf:first>
-                                                            <rdf:Description>
-                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#isFactOf"/>
-                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/u"/>
-                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
-                                                            </rdf:Description>
-                                                        </rdf:first>
-                                                        <rdf:rest>
-                                                            <rdf:Description>
-                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                                                                <rdf:first>
-                                                                    <rdf:Description>
-                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasBloodInUrineRating"/>
-                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/u"/>
-                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/ur"/>
-                                                                    </rdf:Description>
-                                                                </rdf:first>
-                                                                <rdf:rest>
-                                                                    <rdf:Description>
-                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                                                                        <rdf:first>
-                                                                            <rdf:Description>
-                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
-                                                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
-                                                                                <swrl:arguments>
-                                                                                    <rdf:Description>
-                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                                                                        <rdf:first rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/ur"/>
-                                                                                        <rdf:rest>
-                                                                                            <rdf:Description>
-                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</rdf:first>
-                                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                                                                            </rdf:Description>
-                                                                                        </rdf:rest>
-                                                                                    </rdf:Description>
-                                                                                </swrl:arguments>
-                                                                            </rdf:Description>
-                                                                        </rdf:first>
-                                                                        <rdf:rest>
-                                                                            <rdf:Description>
-                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                                                                                <rdf:first>
-                                                                                    <rdf:Description>
-                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
-                                                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#BloodInStool"/>
-                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/s"/>
-                                                                                    </rdf:Description>
-                                                                                </rdf:first>
-                                                                                <rdf:rest>
-                                                                                    <rdf:Description>
-                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                                                                                        <rdf:first>
-                                                                                            <rdf:Description>
-                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#isFactOf"/>
-                                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/s"/>
-                                                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
-                                                                                            </rdf:Description>
-                                                                                        </rdf:first>
-                                                                                        <rdf:rest>
-                                                                                            <rdf:Description>
-                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                                                                                                <rdf:first>
-                                                                                                    <rdf:Description>
-                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-                                                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasBloodInStoolRating"/>
-                                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/s"/>
-                                                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/sr"/>
-                                                                                                    </rdf:Description>
-                                                                                                </rdf:first>
-                                                                                                <rdf:rest>
-                                                                                                    <rdf:Description>
-                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                                                                                                        <rdf:first>
-                                                                                                            <rdf:Description>
-                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
-                                                                                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
-                                                                                                                <swrl:arguments>
-                                                                                                                    <rdf:Description>
-                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                                                                                                        <rdf:first rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/sr"/>
-                                                                                                                        <rdf:rest>
-                                                                                                                            <rdf:Description>
-                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</rdf:first>
-                                                                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                                                                                                            </rdf:Description>
-                                                                                                                        </rdf:rest>
-                                                                                                                    </rdf:Description>
-                                                                                                                </swrl:arguments>
-                                                                                                            </rdf:Description>
-                                                                                                        </rdf:first>
-                                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                                                                                    </rdf:Description>
-                                                                                                </rdf:rest>
-                                                                                            </rdf:Description>
-                                                                                        </rdf:rest>
-                                                                                    </rdf:Description>
-                                                                                </rdf:rest>
-                                                                            </rdf:Description>
-                                                                        </rdf:rest>
-                                                                    </rdf:Description>
-                                                                </rdf:rest>
-                                                            </rdf:Description>
-                                                        </rdf:rest>
-                                                    </rdf:Description>
-                                                </rdf:rest>
-                                            </rdf:Description>
-                                        </rdf:rest>
-                                    </rdf:Description>
-                                </rdf:rest>
-                            </rdf:Description>
-                        </rdf:rest>
-                    </rdf:Description>
-                </rdf:rest>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasBleeding"/>
-                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
-                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#UnknownBleeding"/>
-                    </rdf:Description>
-                </rdf:first>
-                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
         <rdfs:comment>If the patient has some blood in their stool (rating = 1) and at least a moderate nose bleeding (rating = 5-10), a severe bleeding is inferred</rdfs:comment>
         <rdfs:label>SevereBleedingDetection5</rdfs:label>
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
@@ -2960,6 +2854,213 @@
                         <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasBleeding"/>
                         <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
                         <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#ModerateBleeding"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>If no bleeding value is known (all of them are -1), no inferrence about the bleeding can be made.</rdfs:comment>
+        <rdfs:label>UnknownBleedingDetection</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#NoseBleeding"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/n"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#isFactOf"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/n"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasNoseBleedingRating"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/n"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/nr"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/nr"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#BloodInUrine"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/u"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#isFactOf"/>
+                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/u"/>
+                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasBloodInUrineRating"/>
+                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/u"/>
+                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/ur"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                                                                <swrl:arguments>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                        <rdf:first rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/ur"/>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</rdf:first>
+                                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </swrl:arguments>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                <rdf:first>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#BloodInStool"/>
+                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/s"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                        <rdf:first>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#isFactOf"/>
+                                                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/s"/>
+                                                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                <rdf:first>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasBloodInStoolRating"/>
+                                                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/s"/>
+                                                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/sr"/>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                        <rdf:first>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                                                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                                                                                                <swrl:arguments>
+                                                                                                                    <rdf:Description>
+                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                        <rdf:first rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/sr"/>
+                                                                                                                        <rdf:rest>
+                                                                                                                            <rdf:Description>
+                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</rdf:first>
+                                                                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                                            </rdf:Description>
+                                                                                                                        </rdf:rest>
+                                                                                                                    </rdf:Description>
+                                                                                                                </swrl:arguments>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:first>
+                                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasBleeding"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#UnknownBleeding"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -3697,6 +3798,338 @@
     </rdf:Description>
     <rdf:Description>
         <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>If the ingestion rating is -1, the patient hasn&apos;t given a rating yet and no inferrences can be made.</rdfs:comment>
+        <rdfs:label>UnknownDysphagiaDetection</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Ingestion"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/i"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#isFactOf"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/i"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasIngestionRating"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/i"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/r"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/r"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasDysphagia"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#UnknownDysphagia"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>If the ingestion rating is 0 the patient has no ingestion problems, so there are no grounds to conclude dysphagia.</rdfs:comment>
+        <rdfs:label>NoDysphagiaDetection</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Ingestion"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/i"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#isFactOf"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/i"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasIngestionRating"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/i"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/r"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/r"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasDysphagia"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#NoDysphagia"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>If the ingestion rating is 1 the patient has some ingestion problems, which may be due to dysphagia.</rdfs:comment>
+        <rdfs:label>PossibleDysphagiaDetection</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Ingestion"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/i"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#isFactOf"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/i"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasIngestionRating"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/i"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/r"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/r"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasDysphagia"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#PossibleDysphagia"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>If the ingestion rating is 2 the patient has ingestion problems, which is concluded to be dysphagia.</rdfs:comment>
+        <rdfs:label>DysphagiaTrueDetection</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Ingestion"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/i"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#isFactOf"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/i"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasIngestionRating"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/i"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/r"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThanOrEqual"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/r"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasDysphagia"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#DysphagiaTrue"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
         <rdfs:comment>If a patient rates their nose bleeding at 8 or above, this is considered an unstoppable leeding which is severe and they should contact their clinic immediatly</rdfs:comment>
         <rdfs:label>SevereBleedingDetection1</rdfs:label>
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
@@ -3956,6 +4389,52 @@
                                 <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasDiarrhea"/>
                                 <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
                                 <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#SevereDiarrhea"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasSituationAssessment"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#SeekImmediateHelp"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>A detected dysphagia is critical and the patient should contact their clinic immediatly</rdfs:comment>
+        <rdfs:label>DysphagiaAssessment</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Patient"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#hasDysphagia"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid/p"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#DysphagiaTrue"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
