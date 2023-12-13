@@ -850,12 +850,32 @@ The MissingInfoGiven...-rules infer which other symptoms the patient should chec
     
 
 
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#BloodStoolRatingOfPatientTestMissingInfoRules -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#BloodStoolRatingOfPatientTestMissingInfoRules">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#BloodInStool"/>
+        <OncologyAid:isFactOf rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#PatientTestMissingInfoRules"/>
+        <OncologyAid:hasBloodInStoolRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</OncologyAid:hasBloodInStoolRating>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#BloodUrinRatingOfPatient0 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#BloodUrinRatingOfPatient0">
         <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#BloodInUrine"/>
         <OncologyAid:isFactOf rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Patient0"/>
         <OncologyAid:hasBloodInUrineRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</OncologyAid:hasBloodInUrineRating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#BloodUrineRatingOfPatientTestMissingInfoRules -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#BloodUrineRatingOfPatientTestMissingInfoRules">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#BloodInUrine"/>
+        <OncologyAid:isFactOf rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#PatientTestMissingInfoRules"/>
+        <OncologyAid:hasBloodInUrineRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</OncologyAid:hasBloodInUrineRating>
     </owl:NamedIndividual>
     
 
@@ -909,6 +929,16 @@ The MissingInfoGiven...-rules infer which other symptoms the patient should chec
     
 
 
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#DifficultyBreathingOfPatientTestMissingInfoRules -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#DifficultyBreathingOfPatientTestMissingInfoRules">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#DifficultyBreathing"/>
+        <OncologyAid:isFactOf rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#PatientTestMissingInfoRules"/>
+        <OncologyAid:hasDifficultyBreathing rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</OncologyAid:hasDifficultyBreathing>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#DizzinessOfPatient0 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#DizzinessOfPatient0">
@@ -943,6 +973,16 @@ The MissingInfoGiven...-rules infer which other symptoms the patient should chec
         <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Fainting"/>
         <OncologyAid:isFactOf rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Patient0"/>
         <OncologyAid:hasFainted rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</OncologyAid:hasFainted>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#FaintingOfPatientTestMissingInfoRules -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#FaintingOfPatientTestMissingInfoRules">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Fainting"/>
+        <OncologyAid:isFactOf rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#PatientTestMissingInfoRules"/>
+        <OncologyAid:hasDifficultyBreathing rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</OncologyAid:hasDifficultyBreathing>
     </owl:NamedIndividual>
     
 
@@ -1000,6 +1040,16 @@ The MissingInfoGiven...-rules infer which other symptoms the patient should chec
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#IngestionOfPatient0">
         <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Ingestion"/>
         <OncologyAid:isFactOf rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Patient0"/>
+        <OncologyAid:hasIngestionRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</OncologyAid:hasIngestionRating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#IngestionOfPatientTestMissingInfoRules -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#IngestionOfPatientTestMissingInfoRules">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Ingestion"/>
+        <OncologyAid:isFactOf rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#PatientTestMissingInfoRules"/>
         <OncologyAid:hasIngestionRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</OncologyAid:hasIngestionRating>
     </owl:NamedIndividual>
     
@@ -1153,6 +1203,16 @@ The MissingInfoGiven...-rules infer which other symptoms the patient should chec
     
 
 
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#NodeBlOfPatientTestMissingInfoRules -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#NodeBlOfPatientTestMissingInfoRules">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#NoseBleeding"/>
+        <OncologyAid:isFactOf rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#PatientTestMissingInfoRules"/>
+        <OncologyAid:hasNoseBleedingRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5</OncologyAid:hasNoseBleedingRating>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#NoseBlOfPatient0 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#NoseBlOfPatient0">
@@ -1268,6 +1328,17 @@ The MissingInfoGiven...-rules infer which other symptoms the patient should chec
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#SkinRashOfPatient0">
         <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#SkinRashFact"/>
         <OncologyAid:isFactOf rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#Patient0"/>
+        <OncologyAid:hasSkinRashPain rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</OncologyAid:hasSkinRashPain>
+        <OncologyAid:hasSkinRashRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</OncologyAid:hasSkinRashRating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#SkinRashOfPatientTestMissingInfoRules -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#SkinRashOfPatientTestMissingInfoRules">
+        <rdf:type rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#SkinRashFact"/>
+        <OncologyAid:isFactOf rdf:resource="http://www.semanticweb.org/diepa/ontologies/2023/10/OncologyAid#PatientTestMissingInfoRules"/>
         <OncologyAid:hasSkinRashPain rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</OncologyAid:hasSkinRashPain>
         <OncologyAid:hasSkinRashRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</OncologyAid:hasSkinRashRating>
     </owl:NamedIndividual>
