@@ -3,7 +3,7 @@ from owlready2 import *
 class Patient:
         def __init__(self, patient_name):
             self.onto = get_ontology("D:/Universiteit Umea/HT23/Interactivity in smart environments/chatbot/OncologyAid.rdf").load()
-
+            self.missing_info = []
             self.patient_name = patient_name
             self.str_name = str(self.patient_name)
             self.onto.Patient(self.str_name)
@@ -70,15 +70,15 @@ class Patient:
             self.onto.TempOfPatientJan.hasTemperatureValue = temp
         
         def missing_information(self):
-            missing_info = []
+            
             patient_instance = self.onto.Patient(self.str_name)
             symptoms = patient_instance.hasSymptom
             for i in symptoms:
                 print(f"Symptom = {i}")
                 if "Unknown" in str(i):
-                    missing_info.append(i)
+                    self.missing_info.append(i)
                     # print(f"symptom unknown? = {i}")
-            print(f"{missing_info=}")
+            print(f"{self.missing_info=}")
             # print(f"Missing information for Patient {self.str_name}: {symptoms}")
 
              
