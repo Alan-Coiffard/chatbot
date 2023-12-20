@@ -7,26 +7,19 @@ import SendIcon from '@mui/icons-material/Send';
 import "@fontsource/inter"; // Defaults to weight 400
 
 const Chatbot = (props) => {
+    const chatBotName = 'chaty'
     const [msgList, setMsgList] = useState([
         {
-                    message: '1: This should be in left',
-                    direction: 'left'
-                },
-                {
-                    message: '2: This should be in right',
-                    direction: 'right'
-                },
-                {
-                    message: '3: This should be in left again',
-                    direction: 'left'
-                }
+            message: 'Welcome, I am ' + chatBotName + ' ! What can I do for you ?',
+            direction: 'left'
+        },
     ]);
     const [message, setMessage] = React.useState("");
     const onChange = ({ target }) => setMessage(target.value);
 
 
     return (
-        <div className="chatbot rounded-lg">
+        <div className="chatbot rounded-lg max-w-[20rem] w-[20rem]">
             <div className="header">
                 Chatbot
                 <Button
@@ -40,7 +33,7 @@ const Chatbot = (props) => {
                 <ChatLayout msgList={msgList} />
             </div>
             <div className='form'>
-                <div className="relative flex w-full max-w-[24rem]">
+                <div className="relative flex w-full">
                     <Input
                         type="text"
                         label="Message"

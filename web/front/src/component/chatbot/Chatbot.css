@@ -2,7 +2,6 @@
 .chatbot {
     font-family: "Inter";
     background: #C12143;
-    max-width: 400px;
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -23,7 +22,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 7px;
 }
 
 .chatbot form {
