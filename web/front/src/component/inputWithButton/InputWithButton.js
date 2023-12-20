@@ -24,6 +24,7 @@ const InputWithButton = (props) => {
         disabled={!message}
         className="!absolute right-1 top-1 rounded"
         endIcon={<SendIcon />}
+        onClick={console.log("dd")}
       >
         Send
       </Button>

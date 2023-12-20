@@ -1,0 +1,27 @@
+.bubbleContainer {
+width: 100%;
+display: flex;
+color: black;
+}
+
+.bubble {
+    border: 0.5px solid black;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+    font-size: small;
+    border-radius: 4;
+    margin-bottom: 4;
+    word-break: "break-word";
+    font-size: "14px"
+}
+
+.right {
+    justify-content: flex-end !important;
+}
+
+.left {
+    justify-content: flex-start !important;
+}
+

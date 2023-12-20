@@ -1,16 +1,18 @@
+
 .chatbot {
-    background: aliceblue;
+    font-family: "Inter";
+    background: #C12143;
     max-width: 400px;
     display: flex;
     flex-direction: column;
     position: absolute;
     bottom: 5%;
     right: 5%;
-    border-radius: 20px;
     box-shadow: 0px 0px 10px gray;
+    color: white;
 }
 
-.chatbot .header, .chatbot form {
+.chatbot .header, .chatbot .form {
     padding: 5px;
 }
 
@@ -21,7 +23,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 3px 10px 3px 10px;
+    padding: 10px;
 }
 
 .chatbot form {
