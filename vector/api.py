@@ -82,8 +82,51 @@ class Patient:
         def check_symptoms(self):
             patient_instance = self.onto.Patient(self.str_name)
             print(patient_instance.hasSymptom)
-            
+
+        def change_bowel_movements(self, value):
+          del(self.onto.BowelMsOfPatientJan.hasBowelMovementCount)
+          self.onto.BowelMsOfPatientJan.hasBowelMovementCount = value
+
+        def change_blood_in_stool(self, value):
+          del(self.onto.BloodStoolRatingOfPatientJan.hasBloodInStoolRating)
+          self.onto.BloodStoolRatingOfPatientJan.hasBloodInStoolRating = value
+
+        def change_blood_in_urine(self, value):
+          del(self.onto.BloodUrineRatingOfPatientJan.hasBloodInUrineRating)
+          self.onto.BloodUrineRatingOfPatientJan.hasBloodInUrineRating = value
+
+        def change_nosebleed(self, value):
+          del(self.onto.NoseBlOfPatientJan.hasNoseBleedRating)
+          self.onto.NoseBlOfPatientJan.hasNoseBleedRating = value
+
+        def change_breathing(self, value):
+          del(self.onto.DifficultyBreathingOfPatientJan.hasDifficultyBreathing)
+          self.onto.DifficultyBreathingOfPatientJan.hasDifficultyBreathing = value
+
+        def change_dizziness(self, value):
+          del(self.onto.DizzinessOfPatientJan.hasDizzinessRating)
+          self.onto.DizzinessOfPatientJan.hasDizzinessRating = value
+
+        def change_fainted(self, value):
+          del(self.onto.FaintingOfPatientJan.hasFainted)
+          self.onto.FaintingOfPatientJan.hasFainted = value
+
+        def change_ingestion(self, value):
+          del(self.onto.IngestionOfPatientJan.hasIngestionRating)
+          self.onto.IngestionOfPatientJan.hasIngestionRating = value
         
+        def change_pain_rating(self, value):
+          del(self.onto.PainFactOfPatientJan.hasPainRating)
+          self.onto.PainFactOfPatientJan.hasPainRating = value
+
+        def change_skin_rash_pain(self, value):
+          del(self.onto.SkinRashOfPatientJan.hasSkinRashPain)
+          self.onto.SkinRashOfPatientJan.hasSkinRashPain = value
+
+        def change_skin_rash_rating(self, value):
+          del(self.onto.SkinRashOfPatientJan.hasSkinRashRating)
+          self.onto.SkinRashOfPatientJan.hasSkinRashRating = value
+
         def change_temp(self, temp):
             del(self.onto.TempOfPatientJan.hasTemperatureValue)
             self.onto.TempOfPatientJan.hasTemperatureValue = temp
@@ -97,23 +140,69 @@ class Patient:
                 if "Unknown" in str(i):
                     self.missing_info.append(i)
             print(f"{self.missing_info=}")
+
+            # Sentence forming for unknown symptoms
+
             if len(self.missing_info) > 2:
                 substring_to_remove = "OncologyAid.Unknown"
 
-                # Delete a specific substring from the original string
                 symptom_1 = str(self.missing_info[0]).replace(substring_to_remove, '')
                 symptom_2 = str(self.missing_info[1]).replace(substring_to_remove, '')
                 print(symptom_1, symptom_2)
             if len(self.missing_info) == 1:
                 substring_to_remove = "OncologyAid.Unknown"
 
-                # Delete a specific substring from the original string
                 symptom_1 = str(self.missing_info[0]).replace(substring_to_remove, '')
                 print(symptom_1)
             if len(self.missing_info) == 0:
                 symptom_1 = ''
 
 
+        # Check symptoms and fever
+        
+            symptoms = extract_symptoms(textUsed)
+            cancerType = extract_cancer_type(textUsed)
+            fever = extract_fever(textUsed)
+
+
+
+            # Returning questions
+            for i in symptoms:
+                if i["word"] == "fever" or i["word"] == "temperature":
+                    if not fever:
+                        print("what is the temperature?")
+                    else:
+                        pass
+                if i["word"] == "pain" or "hurt" in i["word"]  or "ache" in i["word"]:
+                        self.change_pain_rating(5)
+                        print("PAIN 1-10")
+                if i["word"] == "throwing" or i["word"] == "queasy" or i["word"] == "vomiting" or i["word"] == "vomit":
+                        self.change_ingestion(2)
+                        print("Nausea")
+                if i["word"] ==  "di":
+                        print("diarrhea")
+                        print("How many bowel movements have you had today?")
+                        self.change_bowel_movements(7)
+                if i["word"] == "rash":
+                        print("How much? 0-2")
+                        self.change_skin_rash_rating(1)
+                if i["word"] == "faint":
+                        print("faint")
+                        self.change_fainted(2)
+                if i["word"] == "dizzy" or i["word"] == "dizziness":
+                        print("dizzy")
+                        self.change_dizziness(2)
+
+
+                for i in cancerType:
+                    print(f"cancer type = {i}")
+
+                for i in fever:
+                    temp = i[1]
+                    print(f"fever = {i}")
+                    print("temp value=", i[1])
+
+                    self.change_temp(temp)
 
              
 
@@ -126,5 +215,48 @@ patient.change_temp(37)
 patient.sync_ontology()
 patient.check_symptoms()
 patient.missing_information()
+
+
+"""
+
+JAVA memory: msys64
+
+
+TODO FOR TOMORROW:
+MAKE SURE THE RIGHT STRINGS ARE IN THE CHAT
+JAVA MEMORY
+REWRITE API FILE TO THE RIGHT FORMAT
+
+
+Steps for demo:
+    1. Welcome message
+    1a. initiate a patient
+    2. user types set message: I have been feeling a little dizzy and I have a slight fever. Is this serious?
+    3. infer dizziness and fever
+    3a. ask for temperature
+    4. user writes temperature
+    5. critical assessment, is there anything else?
+
+
+User
+I have been feeling a little dizzy and I have a slight fever. Is this serious?
+OncologyAid
+Can you tell me how high your temperature is, exactly?
+User
+37.7 degrees celsius.
+OncologyAid
+This symptom combination does not seem critical. Have you also experienced symptoms such as pain or skin rash?
+User
+No, nothing else.
+OncologyAid
+Then I recommend that you rest and keep hydrated.
+If you notice your fever reaching 38 degrees, please contact your care team for further assessment. To find out more about how to handle high fever, you can click here: https://www.1177.se/Vasterbotten/sjukdomar--besvar/infektioner/feber/feber/
+
+Is there anything else I can help you with?
+User
+No, thanks.
+
+
+"""
 
 
