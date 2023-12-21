@@ -32,12 +32,23 @@ create_table_query = '''
 cursor.execute(create_table_query)
 conn.commit()
 
+def ligne_existe_dans_fichier(nom_fichier, ligne_recherchee):
+    with open(nom_fichier, 'r') as fichier:
+        for ligne in fichier:
+            # Supprime les espaces blancs à gauche et à droite pour éviter les fausses correspondances
+            if ligne.strip() == ligne_recherchee:
+                return True
+    return False
+
 #Our sentences we like to encode
 sentences = []
 with open('sentences.txt', 'r') as file:
     for line in file:
         line = line.strip()
-        sentences.append(line)
+        if not ligne_existe_dans_fichier("sentences_in_db.txt", line):
+            print('La ligne existe dans le fichier.')
+            sentences.append(line)
+        
 
 #Sentences are encoded by calling model.encode()
 embeddings = model.encode(sentences)
@@ -56,6 +67,9 @@ for sentence, embedding in zip(sentences, embeddings):
     
     cursor.execute(insert_query, quote_and_embedding)
     conn.commit()
+    with open("sentences_in_db.txt", "a") as myfile:
+        print("Ajout dans indb"+ sentence)
+        myfile.write(sentence + "\n")
 
 
 #Print number of sentences

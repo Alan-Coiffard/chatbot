@@ -1,0 +1,21 @@
+{
+    "cancer": 
+        {
+            "breast": [
+                "Prevalence: Breast cancer is the most common cancer among women globally, with millions of cases diagnosed each year.",
+                "Risk Factors: Factors like age, family history, hormonal influences, and genetic mutations (such as BRCA1 and BRCA2) contribute to the risk of developing breast cancer.",
+                "Early Detection: Regular mammograms and self-exams play a crucial role in early detection, significantly improving treatment outcomes.",
+                "Treatment Options: Treatment may involve surgery, chemotherapy, radiation therapy, hormone therapy, or a combination, tailored to the specific characteristics of the cancer.",
+                "Survival Rates: Survival rates for breast cancer have improved due to early detection and advances in treatment, emphasizing the importance of awareness, screenings, and research."
+            ],
+            "skin": [
+                "Types: Skin cancer comes in different forms, including melanoma, basal cell carcinoma, and squamous cell carcinoma.",
+                "Causes: Exposure to ultraviolet (UV) radiation from the sun or tanning beds is a major risk factor for developing skin cancer.",
+                "Warning Signs: Keep an eye on changes in moles, new growths, or alterations in skin pigmentation. Early detection is crucial.",
+                "Prevention: Protect your skin by using sunscreen, wearing protective clothing, and avoiding excessive sun exposure, especially during peak hours.",
+                "Treatment: Treatment options vary based on the type and stage of skin cancer, ranging from surgery and radiation to immunotherapy and targeted therapies. Early detection improves treatment success."    
+            ]
+        }
+    ,
+    "Symptom": {}
+}

@@ -1,34 +1,37 @@
-import "./ChatMsgStyle.css"
+import "./ChatMsgStyle.css";
+import React, { useEffect, useRef } from 'react';
 
 const ChatLayout = (props) => {
   const msgList = props.msgList;
-//   const msgList = [
-//     {
-//         message: '1: This should be in left',
-//         direction: 'left'
-//     },
-//     {
-//         message: '2: This should be in right',
-//         direction: 'right'
-//     },
-//     {
-//         message: '3: This should be in left again',
-//         direction: 'left'
-//     }
-// ];
-  console.log(msgList);
-  if(msgList != []) {
-    const chatBubbles = msgList.map((obj, i = 0) => (
-      <div className={"bubbleContainer " + obj.direction}>
-          <div key={i++} className="bubble">
-              <div className="button">{obj.message}</div>
-          </div>
+  const containerRef = useRef();
+
+  useEffect(() => {
+    // Scroll to the bottom when messages change
+    scrollToBottom();
+  }, [msgList]);
+
+  const scrollToBottom = () => {
+    // Scroll to the bottom of the container
+    containerRef.current.scrollTop = containerRef.current.scrollHeight;
+  };
+
+  if (msgList.length > 0) {
+    const chatBubbles = msgList.map((obj, i) => (
+      <div key={i} className={"bubbleContainer " + obj.direction}>
+        <div className="bubble">
+          <div className="button">{obj.message}</div>
+        </div>
       </div>
     ));
-    return <div className="container">{chatBubbles}</div>;
-  }
-  return <div className="container"></div>;
 
+    return (
+      <div className="container" ref={containerRef}>
+        {chatBubbles}
+      </div>
+    );
+  }
+
+  return <div className="container"></div>;
 };
 
 export default ChatLayout;
