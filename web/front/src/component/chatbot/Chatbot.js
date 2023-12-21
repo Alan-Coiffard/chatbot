@@ -18,10 +18,6 @@ const Chatbot = (props) => {
             direction: 'left'
         },
         {
-            message: 'If you are experiencing emergency symptoms such as : '+ emergencyList +', please call your medical provider as soon as possible.',
-            direction: 'left'
-        },
-        {
             message: 'What can I do for you ?',
             direction: 'left'
         },
