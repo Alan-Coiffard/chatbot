@@ -1,0 +1,69 @@
+#Start messages upon connection:
+
+Hello, welcome to OncologyAid. If you are experiencing emergency symptoms such as &, please call your medical provider as soon as possible. #(any valid emergency symptom)
+
+What do you need help with today?
+
+
+#User side queries:
+Can you give me more information about &? #(any symptom)
+I would like to know more about &. #(any symptom)
+I am experiencing &. #(any symptom)
+I am experiencing & and &. #(any two symptoms)
+Can you explain &? #(any symptom)
+What advice can you give for &? #(bleeding, constipation, diarrhea, pain, dizziness, Dysphagia, fever, hypothermia, skin rash)
+When should I contact healthcare? 
+Is that an emergency?
+Is that dangerous?
+
+
+
+#Questions:
+What symptoms are you experiencing?
+Are you also experiencing the symptom of &?
+Have you also experienced symptoms such as & or &?
+How high is your &? #(temperature)
+How much are you &, on a scale from 0-2 where 0 is none, 1 is a little and 2 is a lot? #(dizziness, ingestion, trouble breathing)
+
+How much & is in your &? #(blood is in your stool, urine ; pain is in your body part)
+How long have you been & for? #(bleeding, having diarrhea, constipated, in pain etc)
+
+How severe is your &? #(bleeding, pain, constipation, diarrhea, dizziness)
+How many & have you had in the last day? #(bowel movements)
+How long have you been experiencing &? #(bleeding, pain, constipation, diarrhea, dizziness)
+Have you &? #(eaten, drank, had a bowel movement)
+Is your & causing you &? #(rash causing pain, dizziness causing fainting etc.)
+
+Can you tell me how high your & is, exactly? #(temperature, pain level)
+
+Where are you experiencing &? #(pain, rash)
+
+Describe your &, on a scale from 1 to 10? #(pain, bleeding other than nosebleed)
+How severe is your &, on a scale from 1 to 10? #(pain, nosebleed)
+
+Is there anything else I can help you with?
+
+
+#Answers:
+
+Okay.
+You are experiencing the symptom of &. # (any valid symptom)
+
+I recommend that you rest and keep hydrated.
+Then I recommend that you &. (recommendations for course of action for given symptom or situation) 
+
+Dealing with disease is hard, do not hesitate to reach out to your care team if you are in need of emotional support.
+You can contact your care team through this link: https://www.1177.se/Vasterbotten/hitta-vard/kontaktkort/Cancercentrum-Vasterbotten/.
+
+You are not alone in this situation.
+ If you need emotional support, contact your care team.
+You can find the contact details for your care team at 1177.se or the information leaflet provided by your team.
+
+You want to find out more information about  &. 
+To find out more about &, you can click here: &.
+Here is a link to find out more: &.
+This symptom combination & seem critical.    #(does/does not)
+There is no need to worry.
+Please call emergency services at phone number 112. 
+Please call your care team immediately.
+If you notice your &, please contact your care team for further assessment. #(valid emergency symptom combination, e.g. temperature below or above threshold, trouble breathing etc.)

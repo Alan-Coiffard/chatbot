@@ -7,16 +7,72 @@ import SendIcon from '@mui/icons-material/Send';
 import "@fontsource/inter"; // Defaults to weight 400
 
 const Chatbot = (props) => {
-    const chatBotName = 'chaty'
+    const chatBotName = 'OncologyAid'
+    const emergencyList = [
+        "42°c fever",
+        " stroke"
+    ]
     const [msgList, setMsgList] = useState([
         {
-            message: 'Welcome, I am ' + chatBotName + ' ! What can I do for you ?',
+            message: 'Welcome to ' + chatBotName + ' !',
+            direction: 'left'
+        },
+        {
+            message: 'If you are experiencing emergency symptoms such as : '+ emergencyList +', please call your medical provider as soon as possible.',
+            direction: 'left'
+        },
+        {
+            message: 'What can I do for you ?',
             direction: 'left'
         },
     ]);
     const [message, setMessage] = React.useState("");
     const onChange = ({ target }) => setMessage(target.value);
-
+    
+    const fetchData = async (msg, dir) => {
+        setMsgList([
+            ...msgList,
+            { message: msg, direction: dir },
+        ]);
+        try {
+            const response = await fetch(`http://localhost:5000/api/data?text=${msg}`);
+            const jsonData = await response.json();
+            if (jsonData.info !== "") {
+                let info = []
+                jsonData.info.forEach(element => {
+                    console.log(element);
+                    info.push({ message: element, direction: jsonData.direction });
+                });
+                setMsgList([
+                    ...msgList,
+                    { message: msg, direction: dir },
+                    { message: jsonData.message, direction: jsonData.direction },
+                    ...info,
+                ]);
+            } else if (jsonData.listSymptoms !== "") {
+                let listSymptoms = []
+                jsonData.listSymptoms.forEach(element => {
+                    console.log(element);
+                    listSymptoms.push({ message: element, direction: jsonData.direction });
+                });
+                setMsgList([
+                    ...msgList,
+                    { message: msg, direction: dir },
+                    { message: jsonData.message, direction: jsonData.direction },
+                    { message: "You have : ", direction: jsonData.direction },
+                    ...listSymptoms,
+                ]);
+            } else {
+                setMsgList([
+                    ...msgList,
+                    { message: msg, direction: dir },
+                    { message: jsonData.message, direction: jsonData.direction },
+                ]);
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
 
     return (
         <div className="chatbot rounded-lg max-w-[20rem] w-[20rem]">
@@ -30,7 +86,9 @@ const Chatbot = (props) => {
                 </Button>            
             </div>
             <div className="conversation">
-                <ChatLayout msgList={msgList} />
+                <ChatLayout 
+                    msgList={msgList} 
+                />
             </div>
             <div className='form'>
                 <div className="relative flex w-full">
@@ -51,11 +109,8 @@ const Chatbot = (props) => {
                         disabled={!message}
                         className="!absolute right-1 top-1 rounded ml-1 p-1 shadow-2xl"
                         onClick={() => {
-                            setMsgList([
-                                ...msgList,
-                                { message: message, direction: 'right' }
-                            ]);
-                            setMessage("")
+                            fetchData(message, 'right');
+                            setMessage("");
                         }}
                     >
                         <SendIcon className='p-1' />
@@ -65,5 +120,7 @@ const Chatbot = (props) => {
         </div>
     );
 };
+
+
 
 export default Chatbot;

@@ -43,7 +43,7 @@ def select_question(text):
         print("No sentences found in the database.")
         cursor.close()
         conn.close()
-        return {False, ""}
+        return "No sentences found in the database."
     else:
         # Parse the database data
         sentences = [row[1] for row in rows]
@@ -53,7 +53,7 @@ def select_question(text):
         min_distance = float('inf')
         nearest_sentence = None
 
-        input_embedding = model.encode(input_sentence)  # Replace with your input embedding
+        input_embedding = model.encode(text)  # Replace with your input embedding
 
         for i, embedding in enumerate(embeddings):
             distance = euclidean_distance(input_embedding, embedding)
@@ -64,42 +64,4 @@ def select_question(text):
 
         # Display the nearest sentence
         print(f"Nearest sentence in the database: {nearest_sentence}")
-        cursor.close()
-        conn.close()
-        return {True, nearest_sentence}
-
-while(1) :
-    # Input sentence from the user
-    input_sentence = input("Enter a sentence: ")
-
-    # Retrieve all sentences and their embeddings from the database
-    select_query = "SELECT Quote_ID, Quote_Text, Quote_Embedding FROM Quotes"
-    cursor.execute(select_query)
-    rows = cursor.fetchall()
-
-    if not rows:
-        print("No sentences found in the database.")
-    else:
-        # Parse the database data
-        sentences = [row[1] for row in rows]
-        embeddings = [np.array(pickle.loads(row[2]))  for row in rows]
-
-        # Calculate Euclidean distances and find the nearest sentence
-        min_distance = float('inf')
-        nearest_sentence = None
-
-        input_embedding = model.encode(input_sentence)  # Replace with your input embedding
-
-        for i, embedding in enumerate(embeddings):
-            distance = euclidean_distance(input_embedding, embedding)
-            print(f"distance: {distance}")
-            if distance < min_distance:
-                min_distance = distance
-                nearest_sentence = sentences[i]
-
-        # Display the nearest sentence
-        print(f"Nearest sentence in the database: {nearest_sentence}")
-
-# Close the cursor and the database connection
-cursor.close()
-conn.close()
+        return nearest_sentence
