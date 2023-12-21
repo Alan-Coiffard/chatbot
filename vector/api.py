@@ -57,12 +57,12 @@ class Patient:
             self.onto.BloodStoolRatingOfPatientJan.hasBloodInStoolRating = -1
             self.onto.BloodUrineRatingOfPatientJan.hasBloodInUrineRating = -1
             self.onto.NoseBlOfPatientJan.hasNoseBleedRating = -1
-            self.onto.BowelMsOfPatientJan.hasBowelMovementCount = -1
+            self.onto.BowelMsOfPatientJan.hasBowelMovementCount = 7
             self.onto.DifficultyBreathingOfPatientJan.hasDifficultyBreathing = -1
             self.onto.DizzinessOfPatientJan.hasDizzinessRating = -1
             self.onto.FaintingOfPatientJan.hasFainted = -1
             self.onto.IngestionOfPatientJan.hasIngestionRating = -1
-            self.onto.PainFactOfPatientJan.hasPainRating = -1
+            self.onto.PainFactOfPatientJan.hasPainRating = 1
             self.onto.SkinRashOfPatientJan.hasSkinRashPain = -1
             self.onto.SkinRashOfPatientJan.hasSkinRashRating = -1
             self.onto.TempOfPatientJan.hasTemperatureValue = -1
@@ -97,6 +97,23 @@ class Patient:
                 if "Unknown" in str(i):
                     self.missing_info.append(i)
             print(f"{self.missing_info=}")
+            if len(self.missing_info) > 2:
+                substring_to_remove = "OncologyAid.Unknown"
+
+                # Delete a specific substring from the original string
+                symptom_1 = str(self.missing_info[0]).replace(substring_to_remove, '')
+                symptom_2 = str(self.missing_info[1]).replace(substring_to_remove, '')
+                print(symptom_1, symptom_2)
+            if len(self.missing_info) == 1:
+                substring_to_remove = "OncologyAid.Unknown"
+
+                # Delete a specific substring from the original string
+                symptom_1 = str(self.missing_info[0]).replace(substring_to_remove, '')
+                print(symptom_1)
+            if len(self.missing_info) == 0:
+                symptom_1 = ''
+
+
 
              
 
