@@ -12,7 +12,10 @@ const ChatLayout = (props) => {
 
   const scrollToBottom = () => {
     // Scroll to the bottom of the container
-    containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    if (containerRef.current) {
+      // Scroll to the bottom of the container
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    }  
   };
 
   if (msgList.length > 0) {
