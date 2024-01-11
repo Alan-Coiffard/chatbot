@@ -1,0 +1,23 @@
+[
+    {
+        "Question": "I would like to know more about cancer",
+        "Answers": [
+            "Here what I found about {cancer type} cancer : {information}.",
+            "You can find more information about {cancer type} cancer here : {link}"
+        ]
+    },
+    {
+        "Question": "I would like to know more about symptom",
+        "Answers": [
+            "Here what I found about {symptom} : {information}.",
+            "You can find more information about {symptom} here : {link}"
+        ]
+    },
+    {
+        "Question": "What should I do ?",
+        "Answers": [
+            {"Enough infomration": "this"},
+            {"Not enough infomration": "this"}
+        ]
+    }
+]
