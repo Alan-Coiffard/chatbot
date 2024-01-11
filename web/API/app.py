@@ -99,7 +99,8 @@ def get_data():
             print("temp value=", i[1])
             patient.change_temp(float(temp))        
     
-    res = patient.sync_ontology()
+    if(listSymptoms != ""):
+        res = patient.sync_ontology()
     
     data = {
         'message': res,

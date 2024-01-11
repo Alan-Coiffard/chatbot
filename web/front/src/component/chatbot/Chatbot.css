@@ -15,6 +15,11 @@
     padding: 5px;
 }
 
+.loader {
+    width: 20px!important;
+    height: 20px!important;
+}
+
 .chatbot .header {
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;

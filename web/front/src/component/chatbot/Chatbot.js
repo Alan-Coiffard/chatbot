@@ -1,5 +1,6 @@
 import './Chatbot.css';
 import CloseIcon from '@mui/icons-material/Close';
+import CircularProgress from '@mui/material/CircularProgress';
 import ChatLayout from '../chatMessage/ChatMessage';
 import React, { useState, useEffect } from 'react';
 import { Input, Button } from "@material-tailwind/react";
@@ -11,6 +12,7 @@ const Chatbot = (props) => {
     const [msgList, setMsgList] = useState([]);
     const [connectionState, setConnectionState] = useState("Chatbot - Connection...");
     const [message, setMessage] = React.useState("");
+    const [waiting, setWaiting] = React.useState(false);
     const onChange = ({ target }) => setMessage(target.value);
     
     const newSession = async () => {
@@ -88,6 +90,8 @@ const Chatbot = (props) => {
             }
         } catch (error) {
             console.error('Error fetching data:', error);
+        } finally {
+            setWaiting(false);
         }
     };
 
@@ -102,12 +106,15 @@ const Chatbot = (props) => {
                     <CloseIcon />
                 </Button>            
             </div>
+
             <div className="conversation">
                 <ChatLayout 
                     msgList={msgList} 
                 />
             </div>
+
             <div className='form'>
+
                 <div className="relative flex w-full">
                     <Input
                         type="text"
@@ -123,14 +130,19 @@ const Chatbot = (props) => {
                     <Button
                         size="sm"
                         variant='outlined'
-                        disabled={!message}
+                        disabled={(!message || waiting)}
                         className="!absolute right-1 top-1 rounded ml-1 p-1 shadow-2xl"
                         onClick={() => {
+                            setWaiting(true);
                             fetchData(message, 'right');
                             setMessage("");
                         }}
                     >
-                        <SendIcon className='p-1' />
+                        {waiting ? (
+                            <CircularProgress className='loader' />
+                        ) : (
+                            <SendIcon className='p-1' />
+                        )}
                     </Button>
                 </div>
             </div>
